@@ -1,0 +1,17 @@
+/* :root {
+    --c-background: #282a36;
+    --c-currentline: #44475a;
+    --c-foreground: #f8f8f2;
+}
+
+.bg-dark {
+    background: var(--c-background) !important;
+}
+
+.navbar-dark {
+    color: var(--c-foreground) !important;
+}
+
+body {
+    background: var(--c-currentline) !important;
+} */
