@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +22,14 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/posts', function() {
-    return view('post', [
-        'title' => 'Posts',
-        'active' => 'posts'
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/categories/{category:slug}', function(Category $category) {
+    return view('category', [
+        'title' => $category->name,
+        'active' => 'categories',
+        // relasi model post
+        'posts' => $category->posts
     ]);
 });

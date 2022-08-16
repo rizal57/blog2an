@@ -15,3 +15,8 @@
 body {
     background: var(--c-currentline) !important;
 } */
+
+.nav-item {
+    font-size: 20px;
+    padding-right: 0.5rem;
+}
