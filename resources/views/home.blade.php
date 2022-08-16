@@ -4,8 +4,8 @@
   <div class="">
     <div class="row">
       <div class="col-md-12 text-center py-5">
-        <h1>Hello Rizal</h1>
-        <h3>Welcome back</h3>
+        <h1>Hello Bro...</h1>
+        <h2>Welcome back again</h2>
       </div>
     </div>
   </div>

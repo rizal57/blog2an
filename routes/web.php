@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
-use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,11 +26,6 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('category', [
-        'title' => $category->name,
-        'active' => 'categories',
-        // relasi model post
-        'posts' => $category->posts
-    ]);
-});
+Route::get('/categories/{category:slug}', [CategoryController::class, 'index']);
+
+Route::get('/author/{user:username}', [AuthorController::class, 'index']);

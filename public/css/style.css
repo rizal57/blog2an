@@ -1,22 +1,13 @@
-/* :root {
-    --c-background: #282a36;
-    --c-currentline: #44475a;
-    --c-foreground: #f8f8f2;
-}
-
-.bg-dark {
-    background: var(--c-background) !important;
-}
-
-.navbar-dark {
-    color: var(--c-foreground) !important;
-}
-
-body {
-    background: var(--c-currentline) !important;
-} */
-
 .nav-item {
-    font-size: 20px;
+    font-size: 1.2rem;
     padding-right: 0.5rem;
+}
+
+.posts-card {
+    transition: 0.3s;
+}
+
+.posts-card:hover {
+    background: rgb(206, 206, 206);
+    transform: scale(1.02);
 }
