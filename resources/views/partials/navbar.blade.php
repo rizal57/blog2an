@@ -18,11 +18,31 @@
           <a class="nav-link" href="#"><i class="bi bi-github"></i></a>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link"><i class="bi bi-person-circle"></i></a>
-        </li>
-      </ul>
+
+      <div class="dropdown ms-auto ">
+        <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      @auth
+        <i class="bi bi-person-circle" style="font-size: 1.3rem"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <form action="/logout" method="post">
+              @csrf
+              <button type="submit" class="dropdown-item">Logout</button>
+            </form>
+          </li>
+      @else
+        <i class="bi bi-box-arrow-in-right" style="font-size: 1.3rem"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/login">Login</a></li>
+          <li><a class="dropdown-item" href="/register">Register</a></li>
+      @endauth
+        </ul>
+      </div>
+
     </div>
   </div>
 </nav>
