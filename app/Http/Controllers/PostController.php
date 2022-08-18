@@ -23,7 +23,6 @@ class PostController extends Controller
 
         return view('posts', [
             'title' => "Posts $title",
-            'active' => 'posts',
             'posts' => Post::with(['user','category'])->latest()->fillter(request(['search','category','author']))->paginate(6)->withQueryString()
         ]);
     }
@@ -33,7 +32,6 @@ class PostController extends Controller
     {
         return view('post', [
             'title' => 'Post',
-            'active' => 'posts',
             'post' => $post
         ]);
     }
