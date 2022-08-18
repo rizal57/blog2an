@@ -12,7 +12,7 @@
           <a class="nav-link {{ ($active == 'posts') ? 'active' : '' }}" href="/posts"><i class="bi bi-file-post"></i></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-person-bounding-box"></i></a>
+          <a class="nav-link {{ ($active == 'authors') ? 'active' : '' }}" href="/authors"><i class="bi bi-person-bounding-box"></i></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="bi bi-github"></i></a>

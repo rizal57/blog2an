@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home', [
         'title' => 'Home',
-        'active' => 'home'
+        'active' => 'home',
+        'regards' => User::timeUser()
     ]);
 });
 
@@ -29,3 +32,6 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories/{category:slug}', [CategoryController::class, 'index']);
 
 Route::get('/author/{user:username}', [AuthorController::class, 'index']);
+
+Route::get('/authors', [UserController::class, 'index']);
+Route::get('/authors/{author:username}', [UserController::class, 'show']);

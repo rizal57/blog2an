@@ -51,4 +51,27 @@ class User extends Authenticatable
     {
         return $this->hasMany((Comment::class));
     }
+
+    public static function timeUser() {
+        $time = date('H:i');
+        $regards = '';
+
+        if ($time > '05:30' && $time < '10:00') {
+            $regards = 'Pagi';
+        } elseif ($time >= '10:00' && $time < '15:00') {
+            $regards = 'Siang';
+        } elseif ($time < '18:00') {
+            $regards = 'Sore';
+        } else {
+            $regards = 'Malam';
+        }
+
+        return $regards;
+    }
+
+    public function scopeFilter($query, array $filters) {
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query->where('name', 'like','%'.$search.'%');
+        });
+    }
 }

@@ -14,11 +14,11 @@ class CategoryController extends Controller
      */
     public function index(Category $category)
     {
-        return view('category', [
-            'title' => $category->name,
-            'active' => 'categories',
+        return view('posts', [
+            'title' => "Post in category: $category->name",
+            'active' => 'posts',
             // method relasi model post
-            'posts' => $category->posts
+            'posts' => $category->posts->load('user', 'category')
         ]);
     }
 
