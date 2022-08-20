@@ -37,3 +37,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+trix-toolbar [data-trix-button-group="file-tools"] {
+    display: none;
+}

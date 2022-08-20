@@ -2,7 +2,11 @@
 
 @section('content')
 <div class="card my-3 mb-3 border-0 shadow-lg">
-  <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->slug }}">
+  @if ($post->image)
+    <div style="max-height: 400px; overflow: hidden">
+      <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->slug }}">
+    </div>
+  @endif
   <div class="card-body">
     <h5 class="card-title">{{ $post->title }}</h5>
     <p>Post by @<a href="/posts?author={{ $post->user->username }}" class="text-decoration-none">{{ $post->user->username }}</a> in cateogory <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>

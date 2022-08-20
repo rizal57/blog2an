@@ -32,7 +32,11 @@
     @foreach ($posts as $post)
     <div class="col-sm-6 mb-3">
       <div class="card border-0 shadow posts-card">
-        <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->title }}">
+        @if ($post->image)
+        <div style="max-height: 250px; overflow: hidden">
+          <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->title }}">
+        </div>
+        @endif
         <div class="card-body">
           <h5 class="card-title">{{ $post->title }}</h5>
           <small><p class="text-muted">In category: <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p></small>
