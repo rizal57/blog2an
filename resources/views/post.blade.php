@@ -28,10 +28,17 @@
   @csrf
   <input type="hidden" name="post_id" value="{{ $post->id }}">
   <input type="hidden" name="slug" value="{{ $post->slug }}">
+  @auth
   <div class="form-floating mb-3 mt-3">
     <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px" name="body"></textarea>
-    <label for="comment">Comments</label>
+    <label for="comment">Comment</label>
   </div>
+  @else
+  <div class="mb-3 mt-3">
+    <textarea class="form-control" placeholder="Login dulu loh biar bisa comment" id="comment" style="height: 100px; cursor: not-allowed" name="body" disabled></textarea>
+  </div>
+  @endauth
+  
   <div class="d-flex justify-content-end">
     <button type="submit" class="btn btn-primary">Add Comment</button>
   </div>

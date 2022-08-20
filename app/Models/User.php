@@ -62,7 +62,7 @@ class User extends Authenticatable
             $regards = 'Pagi';
         } elseif ($time >= '10:00' && $time < '15:00') {
             $regards = 'Siang';
-        } elseif ($time < '18:00') {
+        } elseif ($time >='15:00' && $time < '18:00') {
             $regards = 'Sore';
         } else {
             $regards = 'Malam';

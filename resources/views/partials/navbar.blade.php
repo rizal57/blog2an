@@ -15,7 +15,7 @@
           <a class="nav-link {{ Request::is('authors*') ? 'active' : '' }}" href="/authors"><i class="bi bi-person-bounding-box"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="bi bi-github"></i></a>
+          <a class="nav-link" href="https://github.com/rizal57/blog2an" target="_blank"><i class="bi bi-github"></i></a>
         </li>
       </ul>
 

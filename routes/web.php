@@ -31,7 +31,7 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::post('/comment', [CommentController::class, 'store']);
+Route::post('/comment', [CommentController::class, 'store'])->middleware('auth');
 
 Route::get('/authors', [UserController::class, 'index']);
 Route::get('/authors/{author:username}', [UserController::class, 'show']);
