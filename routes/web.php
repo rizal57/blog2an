@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
@@ -29,6 +31,8 @@ Route::get('/', function () {
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
+Route::post('/comment', [CommentController::class, 'store']);
+
 Route::get('/authors', [UserController::class, 'index']);
 Route::get('/authors/{author:username}', [UserController::class, 'show']);
 
@@ -46,3 +50,5 @@ Route::get('/dashboard', function() {
 })->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('is_admin');

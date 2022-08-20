@@ -40,7 +40,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ $post->title }}</h5>
           <small><p class="text-muted">In category: <a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p></small>
-          <p class="card-text">{{ $post->excerpt }}</p>
+          <p class="card-text">{!! $post->excerpt !!}</p>
           <div class="profile d-flex align-items-center py-2">
             <div>
               <img src="https://via.placeholder.com/40" class="rounded-circle" alt="">

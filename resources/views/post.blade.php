@@ -19,17 +19,22 @@
 <div class="card my-4 mb-3 border-0 shadow-lg py-3 px-2">
 @foreach ($post->comment as $comments)
 <div class="card-body bg-dark bg-opacity-10 rounded mb-2">
-  <p class="card-text">{{ $comments->body }}</p>
+  <p class="card-text">{!! $comments->body !!}</p>
   <p class="card-text text-end"><small class="text-muted">Last updated {{ $comments->created_at->diffForHumans() }} by: {{ $comments->user->name }}</small></p>
 </div>
 @endforeach
 
-<div class="form-floating mb-3 mt-3">
-  <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px"></textarea>
-  <label for="comment">Comments</label>
-</div>
-<div class="d-flex justify-content-end">
-  <button class="btn btn-primary">Add Comment</button>
-</div>
+<form action="/comment" method="post">
+  @csrf
+  <input type="hidden" name="post_id" value="{{ $post->id }}">
+  <input type="hidden" name="slug" value="{{ $post->slug }}">
+  <div class="form-floating mb-3 mt-3">
+    <textarea class="form-control" placeholder="Leave a comment here" id="comment" style="height: 100px" name="body"></textarea>
+    <label for="comment">Comments</label>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary">Add Comment</button>
+  </div>
+</form>
 </div>
 @endsection
